@@ -1,0 +1,284 @@
+% !TEX program = pdflatex
+% Statistical Physics Homework_6
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,enumitem,fancyhdr,color,comment,graphicx,environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}}
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\lhead{Name: 陈稼霖\\ StudentID: 45875852}
+\rhead{PHYS1503 \\ Statistical Physics \\ Semester Fall 2019 \\ Assignment 6}
+\begin{document}
+\begin{problem}{9.1}
+证明在微正则系综理论中，熵可表示为
+\[
+S=-k\sum_s\rho_s\ln\rho_s
+\]
+其中$\rho_s=\frac{1}{\Omega}$是系统处在状态$s$的概率，$\Omega$是系统可能的微观状态数。
+\end{problem}
+\begin{sol}
+正则系综理论中熵为
+\begin{equation}
+S=k\ln\Omega
+\end{equation}
+利用
+\begin{equation}
+\sum_s\rho_s=1
+\end{equation}
+得
+\begin{equation}
+S=(k\ln\Omega)\cdot1=(k\ln\Omega)\sum_s\rho_s=k\sum_s\rho_s\ln\Omega
+\end{equation}
+将
+\begin{equation}
+\rho_s=\frac{1}{\Omega}
+\end{equation}
+代入上式得
+\begin{equation}
+S=k\sum_s\rho_s\ln\frac{1}{\rho_s}=-k\sum_s\rho_s\ln\rho_s
+\end{equation}
+\end{sol}
+
+\begin{problem}{9.2}
+证明在正则系综理论中熵可表示为
+\[
+S=-k\sum_s\rho_s\ln\rho_s
+\]
+其中$\rho_s=\frac{1}{Z}e^{-\beta E_s}$是系统处在能量为$E_s$的状态$s$的概率。
+\end{problem}
+\begin{sol}
+正则系综理论中熵为
+\begin{equation}
+S=k\left(\ln Z-\beta\frac{\partial}{\partial\beta}\ln Z\right)
+\end{equation}
+利用
+\begin{equation}
+\sum_s\rho_s=1
+\end{equation}
+得
+\begin{equation}
+S=k\left(\ln Z-\beta\frac{\partial}{\partial\beta}\ln Z\right)\cdot1=k\left(\ln Z-\beta\frac{\partial}{\partial\beta}\ln Z\right)\sum_s\rho_s=k\sum_s\rho_s\left(\ln Z-\beta\frac{\partial}{\partial\beta}\ln Z\right)
+\end{equation}
+将
+\begin{gather}
+\rho_s=\frac{1}{Z}e^{-\beta E_s}\\
+\Longrightarrow Z=\frac{1}{\rho_s}e^{-\beta E_s}
+\end{gather}
+代入上式得
+\begin{align}
+\nonumber S=&k\sum_s\rho_s\left\{\ln\left(\frac{1}{\rho_s}e^{\beta E_s}\right)-\beta\frac{\partial}{\partial\beta}\left[\ln\left(\frac{1}{\rho_s}e^{-\beta E_s}\right)\right]\right\}\\
+\nonumber=&k\sum_s\rho_s\left[-\ln\rho_s-\beta E_s\ln\rho_s-\beta\frac{\partial}{\partial\beta}(-\ln\rho_s-\beta E_s\ln\rho_s)\right]\\
+=&-k\sum_s\rho_s\ln\rho_s
+\end{align}
+\end{sol}
+
+\begin{problem}{9.5}
+体积为$V$的容器内盛有A、B两种组元的单原子分子混合理想气体，其物质的量分别为$n_A$和$n_B$，温度为$T$。试用正则系综理论混合理想气体的物态方程、内能和熵。
+\end{problem}
+\begin{sol}
+系统能量为
+\begin{equation}
+E=E_A+E_B=\sum_{i=1}^{3N_0n_A}\frac{p_{Ai}^2}{2m_A}+\sum_{j=1}^{3N_0n_B}\frac{p_{Bj}^2}{2m_B}
+\end{equation}
+配分函数为
+\begin{align}
+\nonumber Z=&\frac{1}{(N_0n_A)!(N_0n_B)!h^{3N_0(n_A+n_B)}}\int e^{-\beta E}dq_{A1}\cdots dq_{A3N_0n_A}dp_{A1}\cdots dp_{A3N_0n_A}\\
+\nonumber&\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad dq_{B1}\cdots dq_{B3N_0n_B}dp_{B1}\cdots dq_{B3N_0n_B}\\
+\nonumber=&\frac{V^{N_0n_A}N^{N_0n_B}}{(N_0n_A)!h^{3N_0n_A}(N_0n_B)!h^{3N_0n_B}}\sum_{i=1}^{3N_0n_A}\int e^{-\beta\frac{p_i^2}{2m_A}}dp_{Ai}\sum_{j=1}^{3N_0n_B}\int e^{-\beta\frac{p_i^2}{2m_B}}dp_{Bj}\\
+=&\frac{V^{N_0(n_A+n_B)}}{(N_0n_A)!(N_0n_B)!}\left(\frac{2\pi m_A}{\beta h^2}\right)^{\frac{3N_0n_A}{2}}\left(\frac{2\pi m_B}{\beta h^2}\right)^{\frac{3N_0n_B}{2}}
+\end{align}
+气体压强为
+\begin{equation}
+p=\frac{1}{\beta}\frac{\partial}{\partial V}\ln Z=\frac{N_0(n_A+n_B)}{\beta V}=\frac{N_0(n_A+n_B)kT}{V}
+\end{equation}
+故其物态方程为
+\begin{equation}
+pV=N_0(n_A+n_B)kT
+\end{equation}
+内能为
+\begin{equation}
+U=-\frac{\partial}{\partial\beta}\ln Z=\frac{3N_0(n_A+n_B)}{2\beta}=\frac{3}{2}N_0(n_A+n_B)kT
+\end{equation}
+气体的熵为
+\begin{align}
+\nonumber S=&k(\ln Z-\beta\frac{\partial}{\partial\beta}\ln Z)=k(\ln Z+\beta U)\\
+=&N_0n_Ak\ln\left[\frac{V}{N_A}\left(\frac{2\pi m_AkT}{h^2}\right)^{3/2}\right]+N_0n_Bk\ln\left[\frac{V}{N_A}\left(\frac{2\pi m_BkT}{h^2}\right)^{3/2}\right]+\frac{5}{2}N_0(n_A+n_B)k
+\end{align}
+\end{sol}
+
+\begin{problem}{9.8}
+被吸附在液体表面的分子形成一种二维气体。考虑到分子间的相互作用，试由正则分布证明，与范式方程相应的二维气体物态方程可以表示为
+\[
+pS=NkT\left(1+\frac{N}{N_A}\frac{B}{S}\right)
+\]
+其中
+\[
+B=-\frac{N_A}{2}\int(e^{-\frac{\phi}{kT}}-1)2\pi rdr
+\]
+$S$为液面的面积，$\phi$为两分子的互作用势。
+\end{problem}
+\begin{sol}
+二维气体的能量为
+\begin{equation}
+E=\sum_{k=1}^{2N}\frac{p_k^2}{2m}+\sum_{i<j}\varphi(r_{ij})
+\end{equation}
+配分函数为
+\begin{align}
+\nonumber Z=&\frac{1}{N!h^{2N}}\idotsint e^{-\beta E}dq_1\cdots dq_{2N}dp_1\cdots dp_{2N}\\
+\nonumber=&\frac{1}{N!h^{2N}}\idotsint e^{-\beta\sum_{k=1}^{2N}\frac{p_k^2}{2m}}dp_1\cdots dp_{2N}\idotsint e^{-\beta\sum_{i<j}\varphi(r_{ij})}dq_1\cdots dq_{2N}\\
+\nonumber=&\frac{1}{N!h^{2N}}\left(\frac{2\pi m}{\beta}\right)^{N}Q
+\end{align}
+其中位形积分
+\begin{equation}
+Q=\idotsint e^{-\beta\sum_{i<j}\phi(r_{ij})}d\bm{r}_1\cdots d\bm{r}_N
+\end{equation}
+定义函数
+\begin{equation}
+f_{ij}=e^{-\beta\phi(r_{ij})}-1
+\end{equation}
+则
+\begin{equation}
+e^{-\beta\sum_{i<j}\phi(r_{ij})}=\prod_{i<j}(1+f_{ij})\approx1+\sum_{i<j}f_{ij}
+\end{equation}
+位形积分可近似化为
+\begin{align}
+\nonumber Q=&A^N+\frac{N^2}{2}\idotsint f_{12}d\bm{r}_1\cdots d\bm{r}_N\\
+\nonumber=&A^N+\frac{N^2}{2}A^{N-2}\iint f_{12}\bm{r}_1\bm{r}_2\\
+\nonumber=&A^N+\frac{N^2}{2}A^{N-2}\iint f_{12}d\bm{r}_rd\bm{r}_c\\
+\nonumber=&A^N+\frac{N^2}{2}A^{N-1}\iint f_{12}d\bm{r}_c\\
+\nonumber=&A^N+\frac{N^2}{2}A^{N-1}\iint(e^{-\beta\phi(r)}-1)2\pi rdr\\
+=&A^N\left(1-\frac{N^2}{N_0A}\right)
+\end{align}
+其中$\bm{\tau}_r=\bm{\tau}$，$\bm{\tau}_c=\frac{m_1\bm{\tau}_1\bm{\tau}_2}{m_1+m_2}$，$A$为液体表面积，$B=-\frac{N_0}{2}\int(e^{-\beta\phi-1})2\pi rdr$。\\
+故配分函数为
+\begin{equation}
+Z=\frac{1}{N!}\left(\frac{2\pi m}{\beta h^2}\right)^NA^N\left(1-\frac{N^2}{N_0A}B\right)
+\end{equation}
+二维气体的物态方程为
+\begin{align}
+\nonumber p=&\frac{1}{\beta}\frac{\partial}{\partial A}\ln Z=\frac{1}{\beta}\left[\frac{N}{A}+\frac{\partial}{\partial\beta}\ln\left(1-\frac{N^2}{N_0A}B\right)\right]\\
+\nonumber=&\frac{1}{\beta}\left[\frac{N}{A}-\frac{\partial}{\partial\beta}\left(\frac{N^2}{N_0A}B\right)\right]\\
+\nonumber=&\frac{1}{\beta}\left[\frac{N}{A}+\frac{N^2}{N_0A^2}B\right]\\
+=&\frac{NkT}{A}\left(1+\frac{NB}{N_0A}\right)
+\end{align}
+\end{sol}
+
+\begin{problem}{9.9}
+仿照三维固体的德拜理论，计算长度为$L$的线性原子链（一维晶体）在高温和低温下的内能和热容。
+\end{problem}
+\begin{sol}
+在一维原子链上传播的弹性波包含只有一种振动模式的纵波和与有两种振动方式的偏振横波（对应传播方向垂直的两个正交方向的两个偏振），故可用波矢和偏振方向标志$3N$个简正振动状态。利用波动方程知，两种波的圆频率和波矢大小关系为
+\begin{gather}
+\omega=c_lk\\
+\omega=c_tk
+\end{gather}
+在长度$L$内，在$\bm{k}$--$\bm{k}+d\bm{k}$范围内，根据周期性边界条件，允许存在的波矢数为$\frac{L}{2\pi}dk$，则在对应的圆频率范围$\omega$--$\omega+d\omega$内，简正振动状态数为
+\begin{equation}
+D(\omega)d\omega=2\times\frac{L}{2\pi}\left(\frac{1}{c_l}+\frac{2}{c_t}\right)d\omega=\times\frac{L}{\pi}\left(\frac{1}{c_l}+\frac{2}{c_t}\right)d\omega=Bd\omega
+\end{equation}
+设最大圆频率为$\omega_D$，简正振动状态数
+\begin{gather}
+\int_0^{\omega_D}Bd\omega=B\omega_0=3N\\
+\Longrightarrow\omega_D=\frac{3N}{B}
+\end{gather}
+从而态密度为
+\begin{equation}
+D(\omega)d\omega=\left\{\begin{array}{ll}
+Bd\omega,&\omega\leq\omega_D\\
+0,&\omega>\omega_D
+\end{array}\right.
+\end{equation}
+一维原子链的内能为
+\begin{align}
+\nonumber U=&U_0+\sum_{i=1}^{3N}\frac{\hbar\omega}{e^{\beta\hbar\omega_i}-1}\\
+\nonumber\approx&U_0+\int_0^{\omega_D}D(\omega)\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}d\omega\\
+=&U_0+B\int_0^{\omega_D}\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}d\omega
+\end{align}
+在高温下，$\frac{\hbar\omega}{kT}\ll1\Longrightarrow e^{\frac{\hbar\omega}{kT}}\approx1+\frac{\hbar\omega}{kT}$，从而内能可近似化为
+\begin{equation}
+U=U_0+\frac{3N}{\omega_D}\int_0^{\omega_D}kTd\omega=U_0+3NkT
+\end{equation}
+热容为
+\begin{equation}
+C_V=\frac{\partial U}{\partial T}=3Nk
+\end{equation}
+在低温下，$\frac{\hbar\omega}{kT}\gg1$，从而内能可近似化为
+\begin{equation}
+U\approx U_0+B\int_0^{+\infty}\frac{\hbar\omega}{e^{\frac{\hbar\omega}{kT}}-1}d\omega
+\end{equation}
+查阅课本附录C知
+\begin{equation}
+U=U_0+\frac{3N}{\omega_D}\frac{(kT)^2}{\hbar}\frac{\pi^2}{6}=U_0+\frac{\pi^2}{2}\frac{Nk}{\theta_D}T^2
+\end{equation}
+其中$\theta_D=\frac{\hbar\omega_D}{k}$为一维原子链的德拜温度。\\
+热容为
+\begin{equation}
+C_V=\frac{\partial U}{\partial T}=\pi^2\frac{Nk}{\theta_D}T
+\end{equation}
+\end{sol}
+
+\begin{problem}{9.10}
+仿照三维固体的德拜理论，计算面积为$L^2$的原子层（二维晶格）在高温和低温下的内能和热容。
+\end{problem}
+\begin{sol}
+在一维原子链上传播的弹性波包含只有一种振动模式的纵波和与有两种振动方式的偏振横波（对应传播方向垂直的两个正交方向的两个偏振），故可用波矢和偏振方向标志$3N$个简正振动状态。利用波动方程知，两种波的圆频率和波矢大小关系为
+\begin{gather}
+\omega=c_lk\\
+\omega=c_tk
+\end{gather}
+在面积$L^2$内，在$\bm{k}$--$\bm{k}+d\bm{k}$范围内，根据边界条件，允许存在的波矢数为$\frac{L^2}{2\pi}kdk$，在对应的圆频率范围$\omega--\omega+d\omega$内，简正振动状态数为
+\begin{equation}
+D(\omega)d\omega=2\times\frac{L}{2\pi}\left(\frac{1}{c_l}+\frac{2}{c_t}\right)\omega d\omega=B\omega d\omega
+\end{equation}
+设最大圆频率为$\omega_D$，总简正振动状态数为
+\begin{gather}
+\int_0^{\omega_D}D(\omega)d\omega=B\int_0^{\omega}\omega d\omega=3N
+\Longrightarrow\omega=\sqrt{\frac{6N}{B}}
+\end{gather}
+从而态密度为
+\begin{equation}
+D(\omega)d\omega=\left\{\begin{array}{ll}
+Bd\omega,&\omega\leq\omega_D\\
+0,&\omega>\omega_D
+\end{array}\right.
+\end{equation}
+原子层的内能为
+\begin{align}
+\nonumber U=&U_0+\sum_{i=1}^{3N}\frac{\hbar\omega}{e^{\beta\hbar\omega_i}-1}\\
+\nonumber\approx&U_0+\int_0^{\omega_D}\frac{\hbar\omega^2}{e^{\beta\hbar\omega}-1}d\omega\\
+=&U_0+B\int_0^{\omega_D}\frac{\hbar\omega^2}{e^{\beta\hbar\omega}-1}d\omega
+\end{align}
+在高温下，$\frac{\hbar\omega}{kT}\ll1\Longrightarrow e^{\frac{\hbar\omega}{kT}}\approx1+\frac{\hbar\omega}{kT}$，从而内能可近似化为
+\begin{equation}
+U=U_0+\frac{6N}{\omega_D^2}\int_0^{\omega_D}kT\omega d\omega=U_0+3NkT
+\end{equation}
+热容为
+\begin{equation}
+C_V=\frac{\partial U}{\partial T}=3Nk
+\end{equation}
+在低温下，$\frac{\hbar\omega_D}{kT}\gg1$，从而内能可近似化为
+\begin{equation}
+U=U_0+B\int_0^{+\infty}\frac{\hbar\omega^2}{e^{\beta\hbar\omega}-1}d\omega
+\end{equation}
+查阅课本附录C知
+\begin{equation}
+U=U_0+\frac{6N}{\omega_D^2}\frac{(kT)^3}{\hbar^2}\cdot2.404=U_0+3Nk\cdot4.808\frac{T^3}{\theta_D^2}
+\end{equation}
+其中$\theta_D$为原子层的德拜温度。\\
+热容为
+\begin{equation}
+C_V=3Nk\cdot14.424\left(\frac{T}{\theta_D}\right)^2
+\end{equation}
+\end{sol}
+\end{document}

@@ -1,0 +1,641 @@
+% !TEX program = pdflatex
+% Statistical Physics Homework_3
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,enumitem,fancyhdr,color,comment,graphicx,environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+\usepackage[UTF8]{ctex}
+\usepackage{tipa}
+\lhead{Name: 陈稼霖\\ StudentID: 45875852}
+\rhead{PHYS1503 \\ Statistical Physics \\ Semester Fall 2019 \\ Assignment 3}
+\begin{document}
+\begin{problem}{3.1}
+证明下列平衡判据（假设$S>0$）:
+\begin{itemize}
+\item[（a）] 在$S$、$V$不变的情形下，稳定平衡态的$U$最小。
+\item[（b）] 在$S$、$p$不变的情形下，稳定平衡态的$H$最小。
+\item[（c）] 在$H$、$p$不变的情形下，稳定平衡态的$S$最大。
+\item[（d）] 在$F$、$V$不变的情形下，稳定平衡态的$T$最小。
+\item[（e）] 在$G$、$p$不变的情形下，稳定平衡态的$T$最小。
+\item[（f）] 在$U$、$S$不变的情形下，平衡态的$V$最小。
+\item[（g）] 在$F$、$T$不变的情形下，平衡态的$V$最小。
+\end{itemize}
+\end{problem}
+\begin{sol}
+\begin{itemize}
+\item[（a）] 根据热力学第二定律
+\begin{equation}
+\delta U\leq T\delta S+\delta W
+\end{equation}
+在$S$、$V$不变的情形下,$\delta S=0,\text{\textcrd}W=0$，从而
+\begin{equation}
+\delta U\leq0
+\end{equation}
+当$U$达到最小时，必有
+\begin{equation}
+\delta U=0
+\end{equation}
+系统无法发生任何宏观变化而处于稳定的平衡状态，故在$S$、$V$不变的情形下，稳定平衡态的$U$最小。
+\item[（b）] 在$S$、$p$不变的情形下，$\delta S=0,\delta W=-p\delta V$，从而
+\begin{gather}
+\delta U\leq-p\delta V\\
+\Longrightarrow\delta H=\delta U+p\delta V\leq 0
+\end{gather}
+当$H$达到最小时，必有
+\begin{equation}
+\delta H=0
+\end{equation}
+系统无法发生任何宏观变化而处于稳定的平衡状态，故在$S$、$p$不变的情形下，稳定平衡态的$H$最小。
+\item[（c）] 由
+\begin{equation}
+H=U+pV
+\end{equation}
+得
+\begin{equation}
+\delta H=\delta U+V\delta p+p\delta V\leq T\delta S+\text{\textcrd}W+p\delta V+V\delta p
+\end{equation}
+在$H$、$p$不变的情形下，$\delta H=0,\delta p=0,\text{\textcrd}W=-pdV$，从而
+\begin{equation}
+T\delta S\geq0
+\end{equation}
+当$S$达到最小时，必有
+\begin{equation}
+\delta S=0
+\end{equation}
+系统无法发生任何宏观变化而处于稳定的平衡状态，故在$H$、$p$不变的情形下，稳定平衡态的$S$最大。
+\item[（d）] 由
+\begin{equation}
+F=U-TS
+\end{equation}
+得
+\begin{equation}
+\delta F=\delta U-S\delta T-T\delta S\leq -S\delta T+\text{\textcrd}W
+\end{equation}
+在$F$、$V$不变的情形下，$\delta F=0,\text{\textcrd}W=0$，从而
+\begin{equation}
+S\delta T\leq 0
+\end{equation}
+当$T$达到最小时，必有
+\begin{equation}
+\delta T=0
+\end{equation}
+系统无法发生任何宏观变化而处于稳定的平衡状态，故在$F$、$V$不变的情形下，稳定平衡态的$T$最小。
+\item[（e）] 由
+\begin{equation}
+G=U-TS+pV
+\end{equation}
+得
+\begin{equation}
+\delta G=\delta U-S\delta T-T\delta S+V\delta p+p\delta V\leq\text{\textcrd}W-S\delta T+V\delta p+p\delta V
+\end{equation}
+在$G$、$p$不变的情形下，$\delta G=0,\delta p=0,\text{\textcrd}W=-p\delta V$，从而
+\begin{equation}
+S\delta T\leq0
+\end{equation}
+当$T$达到最小时，必有
+\begin{equation}
+\delta T=0
+\end{equation}
+系统无法发生任何宏观变化而处于稳定的平衡状态，故在$G$、$p$不变的情形下，稳定平衡态的$T$最小。
+\item[（f）] 根据热力学第二定律
+\begin{equation}
+\delta U\leq T\delta S+\text{\textcrd}W
+\end{equation}
+在$U$、$S$不变的情形下，$\delta U=0,\delta S=0$，从而
+\begin{equation}
+\text{\textcrd}W\geq0
+\end{equation}
+当$V$达到最小时，外界无法再压缩系统以对系统做功，从而
+\begin{equation}
+\text{\textcrd}W=0
+\end{equation}
+系统无法发生任何宏观变化而处于稳定的平衡状态，故在$U$、$S$不变的情形下，平衡态的$V$最小。
+\item[（g）] 根据
+\begin{equation}
+F=U-TS
+\end{equation}
+得
+\begin{equation}
+\delta F=\delta U-S\delta T-T\delta S\leq -S\delta T+\text{\textcrd}W
+\end{equation}
+在$F$、$T$不变的情形下，$\delta F=0,\delta T=0$，从而
+\begin{equation}
+\text{\textcrd}W\geq0
+\end{equation}
+当$V$达到最小时，外界无法再压缩系统以对系统做功，从而
+\begin{equation}
+\text{\textcrd}W=0
+\end{equation}
+系统无法发生任何宏观变化而处于稳定的平衡状态，故在$F$、$T$不变的情形下，平衡态的$V$最小。
+\end{itemize}
+\end{sol}
+
+\begin{problem}{3.5}
+求证：
+\[
+\left(\frac{\partial U}{\partial n}\right)_{T,V}-\mu=-T\left(\frac{\partial\mu}{\partial T}\right)_{V,n}
+\]
+\end{problem}
+\begin{sol}
+开系的内能
+\begin{equation}
+U=G+TS+pV
+\end{equation}
+微分得
+\begin{equation}
+dU=TdS-pdV+\mu dn
+\end{equation}
+恒温恒容下关于$n$偏求导得
+\begin{gather}
+\left(\frac{\partial U}{\partial n}\right)_{T,V}=T\left(\frac{\partial S}{\partial n}\right)_{T,V}+\mu\\
+\label{3.5}\Longrightarrow\left(\frac{\partial U}{\partial n}\right)_{T,V}-\mu=T\left(\frac{\partial S}{\partial n}\right)_{T,V}
+\end{gather}
+开系的自由能的微分
+\begin{equation}
+dF=-SdT-pdV+\mu dn
+\end{equation}
+恒温恒容下关于$n$求偏导得
+\begin{equation}
+\left(\frac{\partial F}{\partial n}\right)_{T,V}=\mu
+\end{equation}
+$\mu$在恒容闭系条件下关于$T$求偏导
+\begin{equation}
+\left(\frac{\partial\mu}{\partial T}\right)_{V,n}=\left(\frac{\partial}{\partial T}\left(\frac{\partial F}{\partial n}\right)_{T,V}\right)_{V,n}=\left(\frac{\partial}{\partial n}\left(\frac{\partial F}{\partial T}\right)_{V,n}\right)_{T,V}=-\left(\frac{\partial S}{\partial n}\right)_{T,V}
+\end{equation}
+将上式回代式(\ref{3.5})即得
+\begin{equation}
+\left(\frac{\partial U}{\partial n}\right)_{T,V}-\mu=-T\left(\frac{\partial\mu}{\partial T}\right)_{V,n}
+\end{equation}
+\end{sol}
+
+\begin{problem}{3.7}
+试证明在相变中物质的摩尔内能的变化为
+\[
+\Delta U_m=L(1-\frac{p}{T}\frac{dT}{dp})
+\]
+如果一相是气相，可看做理想气体，另一相是凝聚相，试将公式化简。
+\end{problem}
+\begin{sol}
+物质内能
+\begin{equation}
+U_m=H_m-pV
+\end{equation}
+当发生相变时，温度和压强不变，
+\begin{equation}
+\Delta U_m=\Delta H_m-p\Delta V_m=L-p\Delta V_m
+\end{equation}
+将克拉珀龙方程
+\begin{equation}
+\frac{dT}{dp}=\frac{T\Delta V_m}{L}
+\end{equation}
+代入即得
+\begin{equation}
+\Delta U_m=L(1-\frac{p}{T}\frac{dT}{dp})
+\end{equation}
+当一相是气相，可看做理想气体，另一相是凝聚相，则克拉珀龙方程可简化为
+\begin{equation}
+\frac{dp}{dT}=\frac{Lp}{RT^2}
+\end{equation}
+代入可得
+\begin{equation}
+\Delta U_m=L(1-\frac{RT}{L})
+\end{equation}
+\end{sol}
+
+\begin{problem}{3.9}
+以$c_{\alpha}^{\beta}$表示在维持$\beta$相和$\alpha$两相平衡的条件下$1$mol$\beta$相物质升高$1$K所吸收的热量，称为$\beta$相的两相平衡摩尔热容量。试证明
+\[
+c_{\alpha}^{\beta}=c_p^{\alpha}-\frac{L}{V_m^{\beta}-V_m^{\alpha}}\left(\frac{\partial V_m^{\beta}}{\partial T}\right)
+\]
+如果$\beta$相是蒸汽，可看作理想气体，$\alpha$是凝聚相，上式可化简为
+\[
+c_{\alpha}^{\beta}=c_p^{\beta}-\frac{L}{T}
+\]
+并说明为什么饱和蒸汽的热容量有可能是负的。
+\end{problem}
+\begin{sol}
+热容量定义
+\begin{equation}
+c_{\beta}^{\alpha}=\lim_{dT\rightarrow0}\frac{\text{\textcrd}Q}{dT}
+\end{equation}
+对可逆过程
+\begin{equation}
+dS_m^{\beta}=\frac{\text{\textcrd}Q}{T}
+\end{equation}
+从而
+\begin{equation}
+c_{\beta}^{\alpha}=\lim_{dT\rightarrow}T\frac{dS_m^{\beta}}{dT}=T\frac{dS_m^{\beta}}{dT}=T\left(\frac{\partial S_m^{\beta}}{\partial T}\right)_p+T\left(\frac{\partial S_m^{\beta}}{\partial p}\right)_T\frac{dp}{dT}
+\end{equation}
+其中
+\begin{gather}
+T\left(\frac{\partial S_m^{\beta}}{\partial T}\right)_p=C_p^{\beta}\\
+\left(\frac{\partial S_m^{\beta}}{\partial p}\right)_T=-\left(\frac{\partial V_m^{\beta}}{\partial T}\right)_p\\
+\frac{dp}{dT}=\frac{L}{T(V_m^{\beta}-V_m^{\alpha})}
+\end{gather}
+代入即得
+\begin{equation}
+c_{\alpha}^{\beta}=C_p^{\beta}-\frac{L}{V_m^{\beta}-V_m^{\alpha}}\left(\frac{\partial V_m^{\beta}}{\partial T}\right)_p
+\end{equation}
+若$\beta$相可视为理想气体，则
+\begin{equation}
+p^{\beta}V_m^{\beta}=RT\Longrightarrow\left(\frac{dV_m^{\beta}}{dT}\right)_p=\frac{R}{p_m^{\beta}}
+\end{equation}
+$\alpha$是凝聚相，则$V_m^{\alpha}=0$可忽略，故
+\begin{equation}
+c_{\alpha}^{\beta}=c_p^{\beta}-\frac{LR}{V_m^{\beta}p_m^{\beta}}=c_p^{\beta}-\frac{L}{T}
+\end{equation}
+当$c_p^{\beta}<\frac{L}{T}$时，$c_{\alpha}^{\beta}$为负。
+\end{sol}
+
+\begin{problem}{3.11}
+根据式(3.4.7) $\frac{1}{p}\frac{dp}{dT}=\frac{L}{RT^2}$ ，利用上题的结果 $\frac{dL}{dT}=c_p^{\alpha}-c_p^{\beta}$ 计及潜热 $L$ 是温度的函数，但假设温度的变化范围不大，定压热容量可以看作常数，证明蒸汽压方程可以表为
+\[
+\ln p=A-\frac{B}{T}+C\ln T
+\]
+\end{problem}
+\begin{sol}
+由
+\begin{equation}
+\frac{dL}{dT}=c_p^{\alpha}-c_p^{\beta}
+\end{equation}
+且定压热容量可视为常数的假设，积分得
+\begin{equation}
+L=L_0+(c_p^{\alpha}-c_p^{\beta})T
+\end{equation}
+代入
+\begin{equation}
+\frac{1}{p}\frac{dp}{dT}=\frac{L}{RT^2}
+\end{equation}
+得
+\begin{equation}
+\frac{dp}{p}=\frac{L_0}{RT^2}dT+\frac{c_p^{\alpha}-c_p^{\beta}}{RT}dT
+\end{equation}
+两边积分得
+\begin{equation}
+\ln p=A-\frac{L_0}{RT}+\frac{c_p^{\alpha}-c_p^{\beta}}{R}\ln T
+\end{equation}
+即
+\begin{equation}
+\ln p=A-\frac{B}{T}+C\ln T
+\end{equation}
+\end{sol}
+
+\begin{problem}{3.16}
+证明爱伦菲斯特公式
+\begin{gather*}
+\frac{dp}{dT}=\frac{\alpha^{(2)}-\alpha^{(1)}}{\kappa^{(2)}-\kappa^{(1)}}\\
+\frac{dp}{dT}=\frac{c_p^{(2)}-c_p^{(1)}}{Tv(\alpha^{(2)}-\alpha^{(1)})}
+\end{gather*}
+\end{problem}
+\begin{sol}
+二级相变在临近的相变点$(T,p)$和$(T+dT,p+dp)$两相的比熵和比体积变化相等
+\begin{gather}
+dS_m^{(1)}=dS_m^{(2)}\\
+dV_m^{(1)}=dV_m^{(2)}
+\end{gather}
+将比熵视为温度和压强的函数
+\begin{equation}
+S_m=S_m(T,p)
+\end{equation}
+微分得
+\begin{align}
+\nonumber ds=&\left(\frac{\partial v}{\partial T}\right)_pdT+\left(\frac{\partial s}{\partial p}\right)_Tdp\\
+\nonumber =&\frac{C_p}{T}dT-\left(\frac{\partial V_m}{\partial T}\right)_pdp\\
+=&\frac{C_p}{T}dT-V_m\alpha dp
+\end{align}
+从而
+\begin{gather}
+\frac{C_p^{(1)}}{T}dT-V_m^{(1)}\alpha^{(1)}dp=\frac{C_p^{(2)}}{T}dT-V_m^{(2)}\alpha^{(2)}dp\\
+\Longrightarrow\frac{dp}{dT}=\frac{C_p^{(2)}-C_p^{(1)}}{TV_m(\alpha^{(2)}-\alpha^{(1)})}
+\end{gather}
+将比体积也视为温度和压强的函数
+\begin{equation}
+V_m=V_m(T,p)
+\end{equation}
+微分得
+\begin{align}
+\nonumber dV_m=&\left(\frac{\partial V_m}{\partial T}\right)_pdT+\left(\frac{\partial V_m}{\partial p}\right)_Tdp\\
+=&V_m\alpha dT-V_m\kappa dp
+\end{align}
+从而
+\begin{gather}
+V_m^{(1)}\alpha^{(1)} dT-V_m^{(1)}\kappa^{(1)}dp=V_m^{(2)}\alpha^{(2)}dT-V_m^{(2)}\kappa^{(2)}dp
+\end{gather}
+由于二级相变中两相的比体积相等，$V_m^{(1)}=V_m^{(2)}$，故
+\begin{gather}
+\alpha^{(1)} dT-\kappa^{(1)}dp=\alpha^{(2)}dT-\kappa^{(2)}dp\\
+\Longrightarrow\frac{dp}{dT}=\frac{\alpha^{(2)}-\alpha^{(1)}}{\kappa^{(2)}-\kappa^{(1)}}
+\end{gather}
+\end{sol}
+
+\begin{problem}{4.1}
+若将$U$看作独立变数$T,V,n_1,\cdots,n_k$的函数，试证明：
+\begin{itemize}
+\item[（a）] $U=\sum_in_i\frac{\partial U}{\partial n_i}+V\frac{\partial U}{\partial V}$
+\item[（b）] $u_i=\frac{\partial U}{\partial n_i}+v_i\frac{\partial U}{\partial V}$
+\end{itemize}
+\end{problem}
+\begin{sol}
+\begin{itemize}
+\item[（a）] $U$为$V,n_1,\cdots,n_k$的一次齐函数
+\begin{equation}
+U(T,\lambda V,\lambda n_1,\cdots,\lambda n_k)=\lambda U(T,V,n_1,\cdots,n_k)
+\end{equation}
+根据欧拉定理，上式两边同关于$\lambda$求导即得
+\begin{equation}
+V\frac{\partial U}{\partial V}+\sum_{i=1}^kn_i\frac{\partial U}{\partial n_i}=U
+\end{equation}
+\item[（b）] （a）中结论式关于$n_i$求偏导得
+\begin{equation}
+\label{4.1}u_i=\frac{\partial U}{\partial n_i}=\frac{\partial U}{\partial n_i}+\frac{\partial V}{\partial n_i}\frac{\partial U}{\partial V}
+\end{equation}
+总体积
+\begin{equation}
+V=\sum_{i=1}^kn_iv,i
+\end{equation}
+在定温定压其他物质摩尔数不变的条件下，关于$n_i$求偏导得
+\begin{equation}
+v_i=\frac{\partial V}{\partial n_i}
+\end{equation}
+代入式(\ref{4.1})中即得
+\begin{equation}
+u_i=\frac{\partial U}{\partial n_i}+v_i\frac{\partial U}{\partial V}
+\end{equation}
+\end{itemize}
+\end{sol}
+
+\begin{problem}{4.3}
+二元理想溶液具有下列形式的化学势：
+\begin{gather*}
+\mu_1=g_1(T,p)+RT\ln x_1\\
+\mu_2=g_2(T,p)+RT\ln x_2
+\end{gather*}
+其中$g_i(T,p)$为纯$i$组元的化学势，$x_i$是溶液中$i$组元的摩尔分数。当物质的量分别为$n_1$、$n_2$的两种纯液体在等温等压下合成理想溶液时，试证明混合前后
+\begin{itemize}
+\item[（a）] 吉布斯函数的变化为
+\[
+\Delta G=RT(n_1\ln x_1+n_2\ln x_2)
+\]
+\item[（b）] 体积不变$\Delta V=0$
+\item[（c）] 熵变$\Delta S=-R(n_1\ln x_1+n_2\ln x_2)$
+\item[（d）] 焓变$\Delta H=0$，因而没有混合热。
+\item[（e）] 内能变化为何？
+\end{itemize}
+\end{problem}
+\begin{sol}
+\begin{itemize}
+\item[（a）] 混合前，$1$组元和$2$组元的吉布斯函数分别为
+\begin{gather}
+G_1=n_1g_1(T,p)\\
+G_2=n_2g_2(T,p)
+\end{gather}
+混合后，二元理想溶液的吉布斯函数
+\begin{equation}
+G=n_1\mu_1+n_2\mu_2=n_1[g_1(T,p)+RT\ln x_1]+n_2[g_2(T,p)+RT\ln x_2]
+\end{equation}
+混合前后吉布斯函数的变化为
+\begin{equation}
+\Delta G=G-G_1-G_2=RT(n_1\ln x_1+n_2\ln x_2)
+\end{equation}
+\item[（b）] 混合前，$1$组元和$2$组元的体积分别为
+\begin{gather}
+V_1=\frac{\partial G_1}{\partial p}=n_1\frac{\partial g_1(T,p)}{\partial p}\\
+V_2=\frac{\partial G_2}{\partial p}=n_2\frac{\partial g_2(T,p)}{\partial p}
+\end{gather}
+混合后，二元理想溶液的体积
+\begin{equation}
+V=\frac{\partial G}{\partial p}=n_1\frac{\partial g_1(T,p)}{\partial p}+n_2\frac{\partial g_2(T,p)}{\partial p}
+\end{equation}
+混合前后，体积不变
+\begin{equation}
+\Delta V=V-V_1-V_2=0
+\end{equation}
+\item[（c）] 混合前，$1$组元和$2$组元的熵分别为
+\begin{gather}
+S_1=-\frac{\partial G}{\partial T}=-n_1\frac{\partial g_1(T,p)}{\partial T}\\
+S_2=-\frac{\partial G}{\partial T}=-n_2\frac{\partial g_2(T,p)}{\partial T}
+\end{gather}
+混合后，二元理想溶液的熵
+\begin{equation}
+S=-\frac{\partial G}{\partial T}=-n_1\left[\frac{\partial g_1(T,p)}{\partial T}+R\ln x_1\right]-n_2\left[\frac{\partial g_2(T,p)}{\partial T}+R\ln x_2\right]
+\end{equation}
+混合前后，熵变
+\begin{equation}
+\Delta S=S-S_1-S_2=-R(n_1\ln x_1+n_2\ln x_2)
+\end{equation}
+\item[（d）] 混合前，$1$组元和$2$组元的焓分别为
+\begin{gather}
+H_1=G_1+S_1T=n_1g_1(T,p)-n_1\frac{\partial g_1(T,p)}{\partial T}\\
+H_2=G_1+S_2T=n_2g_2(T,p)-n_2\frac{\partial g_2(T,p)}{\partial T}
+\end{gather}
+混合后，二元理想溶液的焓
+\begin{equation}
+H=G+S=n_1\left[g_1(T,p)-\frac{\partial g_1(T,p)}{\partial T}\right]+n_2\left[g_2(T,p)-\frac{\partial g_2(T,p)}{\partial T}\right]
+\end{equation}
+混合前后，焓不变
+\begin{equation}
+\Delta H=H-H_1-H_2=0
+\end{equation}
+因而没有混合热。
+\item[（e）] 混合前，$1$组元和$2$组元的内能分别为
+\begin{gather}
+U_1=H_1-pV_1=n_1g_1(T,p)-n_1\frac{\partial g_1(T,p)}{\partial T}-pn_1\frac{\partial g_1(T,p)}{\partial p}\\
+U_2=H_1-pV_2=n_2g_2(T,p)-n_2\frac{\partial g_2(T,p)}{\partial T}-pn_2\frac{\partial g_2(T,p)}{\partial p}
+\end{gather}
+混合后，二元理想溶液的内能为
+\begin{align}
+\nonumber U=&H-pV=n_1\left[g_1(T,p)-\frac{\partial g_1(T,p)}{\partial T}\right]+n_2\left[g_2(T,p)-\frac{\partial g_2(T,p)}{\partial T}\right]\\
+&-p\left[n_1\frac{\partial g_1(T,p)}{\partial p}+n_2\frac{\partial g_2(T,p)}{\partial p}\right]
+\end{align}
+混合前后，内能不变
+\begin{equation}
+\Delta U=U-U_1-U_2=0
+\end{equation}
+\end{itemize}
+\end{sol}
+
+\begin{problem}{4.6}
+如图4.6所示，开口玻璃管底端有半透膜将管中糖的水溶液与容器内的水隔开。半透膜只让水透过，不让糖透过。实验发现，糖水溶液的液面比例的液面比容器内水的液面上升一个高度$h$，表明糖水溶液的压强$p$与水的压强$p_0$之差$p-p_0=\rho gh$。这一压强差称为渗透压。试证明，糖水与水达到平衡时有
+\[
+g_1(T,p)+RT\ln(1-x)=g_1(T,p_0)
+\]
+其中$g_1$为纯水的摩尔吉布斯函数，$x$是糖水中糖的摩尔分数，$x=\frac{n_2}{n_1+n_2}\approx\frac{n_2}{n_1}\ll1$。试据此证明
+\[
+p-p_0=\frac{n_2RT}{V}
+\]
+其中$V$是糖水溶液的体积。
+\end{problem}
+\begin{sol}
+将糖水视为混合理想气体，其中水的化学势为
+\begin{equation}
+\mu_1=RT[\varphi_i(T)+\ln p_1]
+\end{equation}
+关于水的摩尔分数$x^L=1-x$求导得
+\begin{equation}
+\left(\frac{\partial\mu_1}{\partial x^L}\right)_{T,p}=\left(\frac{\partial\mu_1}{\partial p_i}\right)_{T,p}\left(\frac{\partial p_i}{\partial x^L}\right)_{T,p}=\frac{RT}{p_1}\left(\frac{\partial p_1}{\partial x^L}\right)_{T,p}=RT\frac{\partial}{\partial x^L}\ln p_1=RT\frac{\partial}{\partial x^L}\ln xp=\frac{RT}{x^L}
+\end{equation}
+积分得糖水中水的化学势
+\begin{equation}
+\mu_1=g_1(T,p)+RT\ln x^L=g_1(T,p)+RT\ln(1-x)
+\end{equation}
+令$x^L\rightarrow1$，则$\mu_1=g_1(T,p)$，故$g_1(T,p)$为纯水的化学势。水作为能透过半透膜的组员，其在膜两边的化学势相等，即
+\begin{equation}
+g_1(T,p)+RT\ln(1-x)=g_1(T,p_0)
+\end{equation}
+对$g_1(T,p)$做一阶泰勒展开
+\begin{equation}
+g_1(T,p)-g_1(T,p_0)=\left(\frac{\partial g_1}{\partial p}\right)_T(p-p_0)=V_m(p-p_0)
+\end{equation}
+其中$V_m$为纯水的摩尔体积。
+\begin{equation}
+\Longrightarrow p-p_0=\frac{g_1(T,p)-g_1(T,p_0)}{V_m}=-\frac{RT\ln(1-x)}{V_m}
+\end{equation}
+由于$x=\frac{n_2}{n_1+n_2}\approx\frac{n_2}{n_1}\ll1$，有近似$\ln(1-x)=-\frac{n_2}{n_1}$，故
+\begin{equation}
+p-p_0=\frac{n_2RT}{n_1V_m}=\frac{n_2RT}{V}
+\end{equation}
+\end{sol}
+
+\begin{problem}{4.8}
+绝热容器中有隔板隔开，两边分别装有$n_1$mol和$n_2$mol的理想气体，温度同为$T$，压强分别为$p_1$和$p_2$。今将隔板抽去，
+\begin{itemize}
+\item[（a）] 试求气体混合后的压强；
+\item[（b）] 如果两种气体是不同的，计算混合后的熵增；
+\item[（c）] 如果两种气体是相同的，计算混合后的熵增。
+\end{itemize}
+\end{problem}
+\begin{sol}
+\begin{itemize}
+\item[（a）] 隔板两边的体积分别为
+\begin{gather}
+V_1=\frac{n_1RT}{p_1}\\
+V_2=\frac{n_2RT}{p_2}
+\end{gather}
+隔板抽去后的总体积
+\begin{equation}
+V=V_1+V_2=RT(\frac{n_1}{p_1}+\frac{n_2}{p_2})
+\end{equation}
+气体混合后的压强为
+\begin{equation}
+p=\frac{(n_1+n_2)RT}{V}=\frac{(n_1+n_2)p_1p_2}{(n_1p_2+n_2p_1)}
+\end{equation}
+\item[（b）] 若两种气体不同，混合前两种气体的熵分别为
+\begin{gather}
+S_1=n_1\left[\int c_{p1}\frac{dT}{T}-R\ln p_1+s_{10}\right]=n_1(c_{p1}\ln T-R\ln p_1+s_{10})\\
+S_2=n_2\left[\int c_{p2}\frac{dT}{T}-R\ln p_2+s_{20}\right]=n_2(c_{p2}\ln T-R\ln p_2+s_{20})
+\end{gather}
+混合后气体的熵为
+\begin{equation}
+S=n_1(c_{p1}\ln T-R\ln\frac{n_1}{n_1+n_2}p+s_{10})+n_2(c_{p2}\ln T-R\ln\frac{n_2}{n_1+n_2}p+s_{20})
+\end{equation}
+混合后的熵增加值为
+\begin{align}
+\nonumber\Delta S=&S-S_1-S_2=-n_1R\ln\left(\frac{n_1}{n_1+n_2}\frac{p}{p_1}\right)-n_2R\ln\left(\frac{n_2}{n_1+n_2}\frac{p}{p_2}\right)\\
+=&R\left[n_1\ln\left(\frac{n_1p_2+n_2p_1}{n_1p_2}\right)+n_2\ln\left(\frac{n_1p_2+n_2p_1}{n_2p_1}\right)\right]
+\end{align}
+\item[（c）] 若两种气体相同，混合前两种气体的熵分别为
+\begin{gather}
+S_1=n_1(c_p\ln T-R\ln p_1+s_0)\\
+S_2=n_2(c_p\ln T-R\ln p_2+s_0)
+\end{gather}
+混合后气体的熵为
+\begin{equation}
+S=(n_1+n_2)(c_p\ln T-R\ln p+s_0)
+\end{equation}
+混合后的熵增加值为
+\begin{align}
+\nonumber\Delta S=&S-S_1-S_2=-R(n_1\ln\frac{p}{p_1}+n_2\ln\frac{p}{p_2})\\
+=&R\left[n_1\ln\left(\frac{n_1p_2+n_2p_1}{(n_1+n_2)p_2}\right)+n_2\ln\left(\frac{n_1p_2+n_2p_1}{(n_1+n_2)p_1}\right)\right]
+\end{align}
+\end{itemize}
+\end{sol}
+
+\begin{problem}{4.9}
+试证明，在NH$_3$分解为N$_2$和H$_2$的反应中
+\[
+\frac{1}{2}\text{N}_2+\frac{3}{2}\text{H}_2-\text{NH}_3=0
+\]
+平衡常量可表为
+\[
+K_p=\frac{\sqrt{27}}{4}\times\frac{\varepsilon^2}{1-\varepsilon^2}p
+\]
+如果将反应方程式写作
+\[
+\text{N}_2+3\text{H}_2-2\text{NH}_3=0
+\]
+平衡量为何？
+\end{problem}
+\begin{sol}
+对于第一个方程，根据平衡常量的定义
+\begin{equation}
+\label{4.9}K_p=p^{\nu}\prod_ix_i^{\nu_i}=\frac{x_1^{\frac{1}{2}}x_2^{\frac{3}{2}}}{x_3}p
+\end{equation}
+设原有$n_0$mol的NH$_3$，分解度为$\varepsilon$，则分解后各物质量
+\begin{gather}
+n_1=\frac{1}{2}\varepsilon n_0\\
+n_2=\frac{3}{2}\varepsilon n_0\\
+n_3=(1-\varepsilon)n_0
+\end{gather}
+分解后总物质量
+\begin{equation}
+n=n_1+n_2+n_3=(1+\varepsilon)n_0
+\end{equation}
+分解后各物质摩尔分数
+\begin{gather}
+x_1=\frac{n_1}{n}=\frac{\varepsilon}{2(1+\varepsilon)}\\
+x_2=\frac{n_2}{n}=\frac{3\varepsilon}{2(1+\varepsilon)}\\
+x_3=\frac{n_3}{n}=\frac{1-\varepsilon}{1+\varepsilon}\\
+\end{gather}
+代入式(\ref{4.9})得
+\begin{equation}
+K_p=\frac{3\sqrt{3}}{4}\frac{\varepsilon^2}{1-\varepsilon^2}p
+\end{equation}
+对于第二个方程，根据平衡常量的定义
+\begin{equation}
+K_p=p^{\nu}\prod_ix_i^{\nu_i}=\frac{x_1x_2^{3}}{x_3^2}p^2=\frac{27}{16}\frac{\varepsilon^4}{(1-\varepsilon^2)^2}p^2
+\end{equation}
+\end{sol}
+
+\begin{problem}{4.10}
+$n_0\nu_1$mol的气体$A_1$和$n_0\nu_2$mol的气体A$_2$的混合物在温度$T$和压强$p$下所占体积为$V_0$，当发生化学变化
+\[
+\nu_3A_3+\nu_4A_4-\nu_1A_1-\nu_2A_2=0
+\]
+并在相同的温度和压强下达到平衡时，其体积为$\tilde{V}$。试证明反应度$\varepsilon$为
+\[
+\varepsilon=\frac{\tilde{V}-V_0}{V_0}\cdot\frac{\nu_1+\nu_2}{\nu_3+\nu_4-\nu_1-\nu_2}
+\]
+\end{problem}
+\begin{sol}
+反应前状态方程
+\begin{equation}
+\label{4.10.1}pV_0=n_0(\nu_1+\nu_2)RT
+\end{equation}
+设反应度为$\varepsilon$，则反应后各气体组分的物质量
+\begin{gather}
+n_1=n_0\nu_1(1-\varepsilon)\\
+n_2=n_0\nu_2(1-\varepsilon)\\
+n_3=n_0\nu_3\varepsilon\\
+n_3=n_0\nu_4\varepsilon
+\end{gather}
+反应后状态方程
+\begin{equation}
+\label{4.10.2}p\tilde{V}=(n_1+n_2+n_3+n_4)RT=n_0(\nu_1(1-\varepsilon)+\nu_2(1-\varepsilon)+\nu_3\varepsilon+\nu_4\varepsilon)RT
+\end{equation}
+联立式(\ref{4.10.1})和(\ref{4.10.2})，得
+\begin{equation}
+\varepsilon=\frac{\tilde{V}-V_0}{V_0}\cdot\frac{\nu_1+\nu_2}{\nu_3+\nu_4-\nu_1-\nu_2}
+\end{equation}
+\end{sol}
+\end{document}

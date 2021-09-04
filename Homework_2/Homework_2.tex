@@ -1,0 +1,423 @@
+% !TEX program = pdflatex
+% Statistical Physics Homework_2
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,enumitem,fancyhdr,color,comment,graphicx,environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+\usepackage[UTF8]{ctex}
+\lhead{Name: 陈稼霖\\ StudentID: 45875852}
+\rhead{PHYS1503 \\ Statistical Physics \\ Semester Fall 2019 \\ Assignment 2}
+\begin{document}
+\begin{problem}{2.2}
+设一物质的物态方程具有以下的形式：
+\[
+p=f(v)T
+\]
+试证明其内能与体积无关。
+\end{problem}
+\begin{sol}
+\begin{equation}
+\left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial p}{\partial T}\right)_V-p=Tf(v)-f(v)T=0
+\end{equation}
+故其内能与体积无关。
+\end{sol}
+
+\begin{problem}{2.3}
+求证：（a）$\left(\frac{\partial S}{\partial p}\right)_H<0$；（b） $\left(\frac{\partial S}{\partial V}\right)_U>0$.
+\end{problem}
+\begin{sol}
+\\（a）焓的全微分
+\begin{equation}
+dH=TdS+Vdp
+\end{equation}
+令$dH=0$，得
+\begin{equation}
+\left(\frac{\partial S}{\partial p}\right)_H=-\frac{V}{T}<0
+\end{equation}
+（b）内能的全微分
+\begin{equation}
+dU=TdS-pdV
+\end{equation}
+令$dU=0$，得
+\begin{equation}
+\left(\frac{\partial S}{\partial V}\right)_U=\frac{p}{T}>0
+\end{equation}
+\end{sol}
+
+\begin{problem}{2.6}
+试证明在相同的压强降落下，气体在准静态绝热膨胀中的温度降落大于在节流过程中的温度降落。\\
+(提示：证明$\left(\frac{\partial T}{\partial p}\right)_S-\left(\frac{\partial T}{\partial p}\right)_H>0$)
+\end{problem}
+\begin{sol}
+将熵视为温度$T$和压强$p$的函数
+\begin{equation}
+S=S(T,p)
+\end{equation}
+熵的全微分
+\begin{equation}
+dS=\left(\frac{\partial S}{\partial T}\right)_pdT+\left(\frac{\partial S}{\partial p}\right)_Tdp
+\end{equation}
+令$S=0$，得
+\begin{equation}
+\left(\frac{\partial T}{\partial p}\right)_S=-\frac{\left(\frac{\partial S}{\partial p}\right)_T}{\left(\frac{\partial S}{\partial T}\right)_p}
+\end{equation}
+根据定压热容量表达式
+\begin{equation}
+C_p=T\left(\frac{\partial S}{\partial T}\right)_p
+\end{equation}
+有
+\begin{equation}
+\left(\frac{\partial T}{\partial p}\right)_S=-\frac{T\left(\frac{\partial S}{\partial p}\right)_T}{C_p}
+\end{equation}
+焓的全微分
+\begin{equation}
+dH=\left(\frac{\partial H}{\partial T}\right)_pdT+\left(\frac{\partial H}{\partial p}\right)_Tdp
+\end{equation}
+令$dH=0$，得
+\begin{equation}
+\left(\frac{\partial T}{\partial p}\right)_H=-\frac{\left(\frac{\partial H}{\partial p}\right)_T}{\left(\frac{\partial H}{\partial T}\right)_p}
+\end{equation}
+根据定压热容量的定义
+\begin{equation}
+C_p=\left(\frac{\partial H}{\partial T}\right)_p
+\end{equation}
+和温度保持不变时焓随压强的变化率与物态方程的关系
+\begin{equation}
+\left(\frac{\partial H}{\partial p}\right)_T=V-\left(\frac{\partial V}{\partial T}\right)_p
+\end{equation}
+有
+\begin{equation}
+\left(\frac{\partial T}{\partial p}\right)_H=\frac{\left(\frac{\partial V}{\partial T}\right)_p-V}{C_p}
+\end{equation}
+从而
+\begin{equation}
+\left(\frac{\partial T}{\partial p}\right)_S-\left(\frac{\partial T}{\partial p}\right)_H=\frac{V}{C_p}>0
+\end{equation}
+故在相同的压强降落下，气体在准静态绝热膨胀中的温度降落大于在节流过程中的温度降落。
+\end{sol}
+
+\begin{problem}{2.7}
+实验发现，一气体的压强$p$与比体积$v$的乘积及内能密度$u$都只是温度$T$的函数，即
+\[
+pV=f(T),\quad U=U(T)
+\]
+试根据热力学理论，讨论该气体的物态方程可能具有什么形式。
+\end{problem}
+\begin{sol}
+设气体质量为$m$，则$V=mv$，从而
+\begin{equation}
+pV=p\cdot mv=mf(T)
+\end{equation}
+气体内能
+\begin{equation}
+U=Vu(T)
+\end{equation}
+一方面，气体内能在恒温下关于体积$V$的偏导
+\begin{equation}
+\left(\frac{\partial U}{\partial V}\right)_T=u(T)
+\end{equation}
+另一方面，温度保持不变时内能随体积的变化率与物态方程的关系
+\begin{align}
+\nonumber\left(\frac{\partial U}{\partial V}\right)_T=&T\left(\frac{\partial p}{\partial T}\right)_V-p=T\left(\frac{\partial\left(\frac{mf(T)}{V}\right)}{\partial T}\right)_V-\frac{mf(T)}{V}\\
+=&\frac{mT}{V}\frac{df(T)}{dT}-\frac{mf(T)}{V}
+\end{align}
+故
+\begin{equation}
+u(T)=\frac{mT}{V}\frac{df(T)}{dT}-\frac{mf(T)}{V}
+\end{equation}
+内能密度在恒温下关于体积$V$的偏导
+\begin{gather}
+\left(\frac{\partial u(T)}{\partial V}\right)_T=-\frac{mT}{V^2}\frac{df(T)}{dT}+\frac{mf(T)}{V^2}=0\\
+\Longrightarrow\frac{df(T)}{f(T)}=\frac{dT}{T}\\
+\Longrightarrow\ln f(T)=\ln T+\ln C\\
+\Longrightarrow pV=mCT
+\end{gather}
+\end{sol}
+
+\begin{problem}{2.9}
+试证明
+\[
+\left(\frac{\partial C_V}{\partial V}\right)_T=T\left(\frac{\partial^2p}{\partial T^2}\right)_V,\quad\left(\frac{\partial C_p}{\partial p}\right)_T=-T\left(\frac{\partial^2V}{\partial T^2}\right)_p
+\]
+并由此导出
+\begin{gather*}
+C_V=C_V^0+T\int_{V_0}^V\left(\frac{\partial^2p}{\partial T^2}\right)_VdV\\
+C_p=C_p^0-T\int_{p_0}^p\left(\frac{\partial^2V}{\partial T^2}\right)_pdp
+\end{gather*}
+根据以上两式证明，理想气体的定容热容量和定压热容量只是温度$T$的函数。
+\end{problem}
+\begin{sol}
+等容热容
+\begin{equation}
+C_V=T\left(\frac{\partial S}{\partial T}\right)_V
+\end{equation}
+$C_V$在恒温条件下关于体积$V$的偏导
+\begin{equation}
+\left(\frac{\partial C_V}{\partial V}\right)_T=T\left(\frac{\partial}{\partial V}\left(\frac{\partial S}{\partial T}\right)_V\right)_T=T\left(\frac{\partial}{\partial T}\left(\frac{\partial S}{\partial V}\right)_T\right)_V
+\end{equation}
+根据麦氏关系$\left(\frac{\partial S}{\partial V}\right)_T=\left(\frac{\partial p}{\partial T}\right)_V$
+\begin{equation}
+\left(\frac{\partial C_V}{\partial V}\right)_T=T\left(\frac{\partial^2p}{\partial T^2}\right)_V
+\end{equation}
+在恒温条件下方程两边同对体积$V$积分，得
+\begin{equation}
+C_V=C_V^0+T\int_{V_0}^V\left(\frac{\partial^2p}{\partial T^2}\right)_VdV
+\end{equation}
+等压热容
+\begin{equation}
+C_p=T\left(\frac{\partial S}{\partial T}\right)_p
+\end{equation}
+$C_p$在恒温条件下关于压强$p$的偏导
+\begin{equation}
+\left(\frac{\partial C_p}{\partial p}\right)_T=T\left(\frac{\partial}{\partial p}\left(\frac{\partial S}{\partial T}\right)_p\right)_T=T\left(\frac{\partial}{\partial T}\left(\frac{\partial S}{\partial p}\right)_T\right)_p
+\end{equation}
+根据麦氏关系$\left(\frac{\partial S}{\partial p}\right)_T=-\left(\frac{\partial V}{\partial T}\right)_p$
+\begin{equation}
+\left(\frac{\partial C_p}{\partial p}\right)_T=-T\left(\frac{\partial^2V}{\partial T^2}\right)_p
+\end{equation}
+在恒温条件下方程两边同对压强$p$积分，得
+\begin{equation}
+C_p=C_p^0-T\int_{p_0}^p\left(\frac{\partial^2V}{\partial T^2}\right)_pdp
+\end{equation}
+理想气体物态方程
+\begin{equation}
+pV=nRT
+\end{equation}
+从而
+\begin{gather}
+\left(\frac{\partial C_V}{\partial V}\right)_T=0\\
+\left(\frac{\partial C_p}{\partial p}\right)_T=0
+\end{gather}
+故理想气体的定容热容量和定压热容量只是温度$T$的函数。
+\end{sol}
+
+\begin{problem}{2.13}
+X射线衍射实验发现，橡皮带未被拉紧时具有无定型结构，当受张力而被拉伸时，具有晶体结构。这一事实表明橡皮带具有大的分子链。（a）试讨论橡皮带在等温过程中被拉伸时它的熵是增加还是减少；（b）试证明它的膨胀系数$\alpha=\frac{1}{L}\left(\frac{\partial L}{\partial T}\right)_F$是负的。
+\end{problem}
+\begin{sol}
+\\（a）橡皮带拉紧后由无定型结构转变为晶体结构，有序程度增加，而熵是刻画系统无序程度的状态函数，因此橡皮带在等温过程中被拉伸时它的熵减少。\\
+（b）橡皮带自由能的全微分（为与题设中的橡皮筋拉力$F$相区分，用字母$f$表示）
+\begin{equation}
+df=-SdT+FdL
+\end{equation}
+从而
+\begin{gather}
+\left(\frac{\partial f}{\partial T}\right)_L=-S\\
+\left(\frac{\partial f}{\partial L}\right)_T=F
+\end{gather}
+考虑到偏导数的次序可以交换
+\begin{gather}
+\left(\frac{\partial}{\partial L}\left(\frac{\partial f}{\partial T}\right)_L\right)_T=-\left(\frac{\partial S}{\partial L}\right)_T=\left(\frac{\partial}{\partial T}\left(\frac{\partial f}{\partial L}\right)_T\right)_L=\left(\frac{\partial F}{\partial T}\right)_L
+\end{gather}
+根据（a）中结论
+\begin{equation}
+\left(\frac{\partial S}{\partial L}\right)_T<0
+\end{equation}
+故
+\begin{equation}
+\left(\frac{\partial F}{\partial T}\right)_L>0
+\end{equation}
+根据链式关系
+\begin{equation}
+\left(\frac{\partial L}{\partial T}\right)_F=\frac{-1}{\left(\frac{\partial T}{\partial F}\right)_L\left(\frac{\partial F}{\partial L}\right)_T}=\frac{-\left(\frac{\partial F}{\partial T}\right)_L}{\left(\frac{\partial F}{\partial L}\right)_T}
+\end{equation}
+根据生活常识，橡皮带受拉力伸长
+\begin{equation}
+\left(\frac{\partial F}{\partial L}\right)_T>0
+\end{equation}
+因此
+\begin{equation}
+\left(\frac{\partial L}{\partial T}\right)_F=\frac{-\left(\frac{\partial F}{\partial T}\right)_L}{\left(\frac{\partial F}{\partial L}\right)_T}<0
+\end{equation}
+故它的膨胀系数
+\begin{equation}
+\alpha=\frac{1}{L}(\frac{\partial L}{\partial T})_F<0
+\end{equation}
+\end{sol}
+
+\begin{problem}{2.14}
+假设太阳是黑体，根据下列数据求太阳表面的温度。\\
+单位时间内透射到地球大气层外单位面积上的太阳辐射能量为$1.35\times10^3\text{J}\cdot\text{m}^{-2}\cdot\text{s}^{-1}$（该值称为太阳常数），太阳的半径为$6.955\times10^8$m，太阳与地球的平均距离为$1.495\times10^{11}$m。
+\end{problem}
+\begin{sol}
+太阳的总辐射功率为
+\begin{equation}
+P=J_{u1}\cdot4\pi r^2=1.35\times10^3\text{J}\cdot\text{m}^{-2}\cdot\text{s}^{-1}\times4\pi(1.495\times10^{11}\text{m})^2=3.79\times10^{26}\text{W}
+\end{equation}
+太阳作为一个黑体，其表面的辐射通量密度
+\begin{equation}
+J_u=\frac{P}{4\pi R^2}=\frac{3.79\times10^{26}\text{W}}{4\pi(6.955\times10^8\text{m})^2}=6.24\times10^7\text{W}\cdot\text{m}^2
+\end{equation}
+根据斯特藩-玻尔兹曼定律，太阳表面的温度
+\begin{equation}
+T=\sqrt[4]{\frac{J_u}{\sigma}}=\sqrt[4]{\frac{6.24\times10^7\text{W}\cdot\text{m}^2}{5.669\times10^{-8}\text{W}\cdot\text{m}^{-2}\cdot\text{K}^{-4}}}=5.76\times10^3K
+\end{equation}
+\end{sol}
+
+\begin{problem}{2.18}
+试证明磁介质$C_H$与$C_M$之差等于
+\[
+C_H-C_M=\mu_0T\left(\frac{\partial H}{\partial T}\right)_M^2\left(\frac{\partial M}{\partial H}\right)_T
+\]
+\end{problem}
+\begin{sol}
+将磁介质内能视为温度$T$和总磁矩$m$的函数
+\begin{equation}
+U=U(T,m)
+\end{equation}
+磁介质内能的全微分
+\begin{equation}
+dU=\left(\frac{\partial U}{\partial T}\right)_mdT+\left(\frac{\partial U}{\partial m}\right)_Tdm
+\end{equation}
+又可写成
+\begin{equation}
+dU=TdS+\mu_0Hdm
+\end{equation}
+由熵的全微分表达式
+\begin{equation}
+dS=\left(\frac{\partial S}{\partial T}\right)_mdT+\left(\frac{\partial S}{\partial m}\right)_Tdm
+\end{equation}
+可得
+\begin{equation}
+dU=T\left(\frac{\partial S}{\partial T}\right)_mdT+\left[T\left(\frac{\partial S}{\partial m}\right)_T+\mu_0H\right]dm
+\end{equation}
+故
+\begin{equation}
+C_m=\left(\frac{\partial U}{\partial T}\right)_m=T\left(\frac{\partial S}{\partial T}\right)_m
+\end{equation}
+将磁介质的焓视为温度$T$和磁场强度$H$的函数（为与磁场强度$H$相区分，焓用字母$h$表示）
+\begin{equation}
+h=h(T,H)
+\end{equation}
+磁介质焓的全微分
+\begin{equation}
+dh=\left(\frac{\partial H}{\partial T}\right)_HdT+\left(\frac{\partial h}{\partial H}\right)_TdH
+\end{equation}
+又可写成
+\begin{equation}
+dh=TdS+\mu_0mdH
+\end{equation}
+由熵的全微分表达式
+\begin{equation}
+dS=\left(\frac{\partial S}{\partial T}\right)_HdT+\left(\frac{\partial S}{\partial H}\right)_TdH
+\end{equation}
+可得
+\begin{equation}
+dh=T\left(\frac{\partial S}{\partial T}\right)_HdT+\left[T\left(\frac{\partial S}{\partial H}\right)_T+\mu_0m\right]dH
+\end{equation}
+故
+\begin{gather}
+C_H=\left(\frac{\partial h}{\partial T}\right)_H=T\left(\frac{\partial S}{\partial T}\right)_H\\
+\Longrightarrow C_H-C_m=T\left(\frac{\partial S}{\partial T}\right)_H-T\left(\frac{\partial S}{\partial T}\right)_m
+\end{gather}
+将磁介质的熵视为温度$T$和磁场强度$H$的函数
+\begin{equation}
+S=S(T,H)=S(T,m(T,H))
+\end{equation}
+磁介质熵在恒定磁场下关于温度$T$的偏导
+\begin{equation}
+\left(\frac{\partial S}{\partial T}\right)_H=\left(\frac{\partial S}{\partial T}\right)_m+\left(\frac{\partial S}{\partial m}\right)_T\left(\frac{\partial m}{\partial T}\right)_H
+\end{equation}
+从而
+\begin{equation}
+C_H-C_m=T\left(\frac{\partial S}{\partial m}\right)_T\left(\frac{\partial m}{\partial T}\right)_H=T\left(\frac{\partial S}{\partial m}\right)_T\left(\frac{\partial m}{\partial T}\right)_H
+\end{equation}
+利用麦氏关系$\left(\frac{\partial S}{\partial m}\right)_T=-\mu_0\left(\frac{\partial H}{\partial T}\right)_m$
+\begin{equation}
+C_H-C_m=-\mu_0T\left(\frac{\partial H}{\partial T}\right)_m\left(\frac{\partial m}{\partial T}\right)_H
+\end{equation}
+根据链式关系
+\begin{equation}
+\left(\frac{\partial m}{\partial T}\right)=\frac{-1}{\left(\frac{\partial T}{\partial H}\right)_m\left(\frac{\partial H}{\partial m}\right)_T}=-\left(\frac{\partial H}{\partial T}\right)_m\left(\frac{\partial m}{\partial H}\right)_T
+\end{equation}
+故
+\begin{equation}
+C_H-C_m=-\mu_0T\left(\frac{\partial H}{\partial T}\right)_m^2\left(\frac{\partial m}{\partial H}\right)_T
+\end{equation}
+\end{sol}
+
+\begin{problem}{2.20}
+已知超导体的磁感应强度$B=\mu_0(H+M)=0$，求证：\\
+（a）$C_M$与$M$无关，只是$T$的函数，其中$C_M$是在磁化强度$M$保持不变的热容量。\\
+（b）$U=\int C_MdT-\frac{\mu_0M^2}{2}+U_0$\\
+（c）$S=\int\frac{C_M}{T}dT+S_0$
+\end{problem}
+\begin{sol}
+\\（a）超导体的热容量
+\begin{equation}
+C_M=T\left(\frac{\partial S}{\partial T}\right)_M
+\end{equation}
+热容量在恒温下关于磁化强度$M$的偏导
+\begin{equation}
+\left(\frac{\partial C_M}{\partial M}\right)_T=\left(\frac{\partial}{\partial M}\left(T\frac{\partial S}{\partial T}\right)_M\right)_T=T\left(\frac{\partial}{\partial M}\left(\frac{\partial S}{\partial T}\right)_M\right)_T=T\left(\frac{\partial}{\partial T}\left(\frac{\partial S}{\partial M}\right)_T\right)_M
+\end{equation}
+根据磁介质的麦氏关系$\left(\frac{\partial S}{V\partial M}\right)_T=-\mu_0\left(\frac{\partial H}{\partial T}\right)_M$
+\begin{equation}
+\left(\frac{\partial C_M}{\partial M}\right)_T=-\mu_0TV\left(\frac{\partial}{\partial T}\left(\frac{\partial H}{\partial T}\right)_T\right)_M
+\end{equation}
+由
+\begin{equation}
+B=\mu_0(H+M)=0
+\end{equation}
+得
+\begin{equation}
+H=-M\Longrightarrow\left(\frac{\partial H}{\partial T}\right)_M=0
+\end{equation}
+从而
+\begin{equation}
+\left(\frac{\partial C_M}{\partial M}\right)_T=0
+\end{equation}
+故$C_M$与$M$无关，只是$T$的函数。\\
+（b）由内能的全微分
+\begin{equation}
+dU=TdS+\mu_0Hdm=TdS-\mu_0VMdM
+\end{equation}
+得
+\begin{equation}
+\left(\frac{\partial U}{\partial M}\right)_T=-\mu_0VM
+\end{equation}
+内能的全微分又可写作
+\begin{equation}
+dU=\left(\frac{\partial U}{\partial T}\right)_MdT+\left(\frac{\partial U}{\partial M}\right)_MdM=C_MdT-\mu_0VM
+\end{equation}
+积分即得
+\begin{equation}
+U=\int C_MdT-\frac{\mu_0VM^2}{2}+U_0
+\end{equation}
+（c）超导体熵的全微分
+\begin{equation}
+dS=\left(\frac{\partial S}{\partial T}\right)_MdT+\left(\frac{\partial S}{\partial m}\right)_Tdm
+\end{equation}
+由超导体的热容量
+\begin{equation}
+C_M=T\left(\frac{\partial S}{\partial T}\right)_M
+\end{equation}
+得
+\begin{equation}
+\left(\frac{\partial S}{\partial T}\right)_M=\frac{C_M}{T}
+\end{equation}
+再结合超导体的麦氏关系$\left(\frac{\partial S}{\partial m}\right)_T=\mu_0\left(\frac{\partial H}{\partial T}\right)_M$，得
+\begin{equation}
+dS=\frac{C_M}{T}+\mu_0\left(\frac{\partial H}{\partial T}\right)_M
+\end{equation}
+其中
+\begin{equation}
+B=\mu_0(H+M)=0\Longrightarrow H=-M\Longrightarrow\left(\frac{\partial H}{\partial T}\right)_M=0
+\end{equation}
+故积分得
+\begin{equation}
+S=\int\frac{C_M}{T}dT+S_0
+\end{equation}
+\end{sol}
+\end{document}

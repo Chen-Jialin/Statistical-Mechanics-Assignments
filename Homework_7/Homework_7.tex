@@ -1,0 +1,373 @@
+% !TEX program = pdflatex
+% Statistical Physics Homework_7
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,enumitem,fancyhdr,color,comment,graphicx,environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}}
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\lhead{Name: 陈稼霖\\ StudentID: 45875852}
+\rhead{PHYS1503 \\ Statistical Physics \\ Semester Fall 2019 \\ Assignment 7}
+\begin{document}
+\begin{problem}{9.12}
+固体中某种准粒子遵从玻色分布，具有以下的色散关系$\omega=Ak^2$。试证明在低温范围，这种准粒子的激发所导致的热容与$T^{3/2}$成比例（铁磁体中的自旋具有这种性质）。
+\end{problem}
+\begin{sol}
+体积$V$内，波矢大小在$k\sim k+dk$范围内的准粒子状态数为
+\begin{equation}
+\frac{4\pi Vk^2dk}{(2\pi)^3}
+\end{equation}
+根据色散关系$\omega=Ak^2$，体积$V$内，圆频率在$\omega\sim\omega+d\omega$范围内的准粒子状态数为
+\begin{equation}
+B\omega^{1/2}d\omega
+\end{equation}
+其中$B=\frac{V}{4\pi^2A^{3/2}}$。由于粒子遵从玻色分布，体积$V$内，圆频率在$\omega\sim\omega+d\omega$范围内的准粒子数为
+\begin{equation}
+N(\omega)d\omega=\frac{B\omega^{1/2}d\omega}{e^{\frac{\hbar\omega}{kT}}-1}
+\end{equation}
+内能为
+\begin{equation}
+U(\omega)d\omega=\frac{B\hbar\omega^{3/2}d\omega}{e^{\frac{\hbar\omega}{kT}}-1}
+\end{equation}
+准粒子的激发所贡献的内能为
+\begin{equation}
+U=\int_0^{+\infty}U(\omega)d\omega=B\hbar\int_0^{+\infty}\frac{\omega^{3/2}d\omega}{e^{\frac{\hbar\omega}{kT}}-1}=B\hbar\left(\frac{kT}{\hbar}\right)^{5/2}\int_0^{+\infty}\frac{x^{3/2}dx}{e^x-1}
+\end{equation}
+从而
+\begin{equation}
+U\propto T^{5/2}
+\end{equation}
+准粒子的激发所导致的热容
+\begin{equation}
+C=\frac{dU}{dT}\propto T^{3/2}
+\end{equation}
+\end{sol}
+
+\begin{problem}{9.17}
+证明在巨正则系综理论中熵可表示为
+\[
+S=-k\sum_N\sum_s\rho_{N,s}\ln\rho_{N,s}
+\]
+其中$\rho_{N,s}=\frac{1}{\Xi}e^{-\alpha N-\beta E_s}$是系统具有$N$个粒子、处在状态$s$的概率。
+\end{problem}
+\begin{sol}
+巨正则系综理论中的熵为
+\begin{equation}
+S=k\left(\ln\Xi-\alpha\frac{\partial\ln\Xi}{\partial\alpha}-\beta\frac{\partial\ln\Xi}{\partial\beta}\right)
+\end{equation}
+将
+\begin{equation}
+\overline{N}=-\frac{\partial}{\partial\alpha}\ln\Xi
+\end{equation}
+和
+\begin{equation}
+U=-\frac{\partial}{\partial\beta}\ln\Xi
+\end{equation}
+代入熵表达式得
+\begin{equation}
+S=k(\ln\Xi+\alpha\overline{N}+\beta U)
+\end{equation}
+由于
+\begin{gather}
+\sum_N\sum_s\rho_{N,s}=1\\
+\sum_N\sum_s\rho_{N,s}N=\overline{N}\\
+\sum_N\sum_s\rho_{N,s}E_s=U
+\end{gather}
+熵表达式可化为
+\begin{equation}
+S=k\sum_N\sum_s\rho_{N,s}(\ln\Xi+\alpha N+\beta E_s)
+\end{equation}
+又由于
+\begin{equation}
+\ln\rho_{N,s}=-(\ln\Xi+\alpha N+\beta E_s)
+\end{equation}
+故熵可表为
+\begin{equation}
+S=-k\sum_N\sum_s\rho_{N,s}\ln\rho_{N,s}
+\end{equation}
+\end{sol}
+
+\begin{problem}{9.18}
+体积$V$中含有$N$个单原子分子，试由巨正则分布证明，在一小体积$v$中有$n$个分子的概率为
+\[
+p_n=\frac{1}{n!}e^{-\bar{n}}(\bar{n})^n
+\]
+其中$\bar{n}$为体积$v$内的平均粒子数。上式称为泊松（Poisson）分布。
+\end{problem}
+\begin{sol}
+根据巨正则分布，小体积内粒子数为$n$，能量为$E_s$的概率为
+\begin{equation}
+\rho_{ns}=\frac{1}{\Xi}e^{-\alpha n-\beta E_s}
+\end{equation}
+在小体积$v$内有$n$个粒子的概率为
+\begin{equation}
+p_n=\sum_s\rho_{ns}=\frac{1}{\Xi}e^{-\alpha n}\sum_se^{-\beta E_s}
+\end{equation}
+其中巨配分函数为
+\begin{equation}
+\Xi=\sum_{n=0}^{\infty}\sum_se^{-\alpha n-\beta E_s}=\sum_{n=0}^{\infty}e^{-\alpha n}\sum_se^{-\beta E_s}=\sum_{n=0}^{\infty}e^{-\alpha n}Z_n
+\end{equation}
+其中$Z_n$为$n$个粒子的正则配分函数。
+\begin{equation}
+Z_n=\frac{1}{n!}Z_1^n
+\end{equation}
+其中$Z_1$为单粒子配分函数。故
+\begin{gather}
+\Xi=\sum_{n=0}^{\infty}\frac{1}{n!}[e^{-\alpha}Z_1]^n=\exp(e^{-\alpha}Z_1)\\
+p_n=\frac{1}{\Xi}e^{-\alpha n}\frac{1}{n!}Z_1^n
+\end{gather}
+体积$v$内的平均粒子数为
+\begin{gather}
+\bar{n}=-\frac{\partial}{\partial\alpha}\ln\Xi=e^{-\alpha}Z_1=\ln\Xi\\
+\Longrightarrow\Xi=e^{\bar{n}}
+\end{gather}
+及
+\begin{equation}
+e^{-\alpha n}Z_1^n=(\bar{n})^m
+\end{equation}
+从而
+\begin{equation}
+p_n=\frac{1}{n!}e^{-\bar{n}}(\bar{n})^n
+\end{equation}
+\end{sol}
+
+\begin{problem}{9.19}
+设单原子分子理想气体与固体吸附面接触达到平衡。被吸附的分子可以在吸附面上做二维运动，其能量为$\frac{p^2}{2m}-\varepsilon_0$，束缚能$\varepsilon_0$是大于零的常数。试根据巨正则分布求吸附面上被吸附分子的面密度与气体温度和压强的关系。
+\end{problem}
+\begin{sol}
+系统的巨正则配分函数为
+\begin{equation}
+\Xi=\sum_{N=0}^{\infty}\sum_se^{-\alpha N-\beta E_s}=\sum_{N=0}^{\infty}e^{-\alpha N}Z_N
+\end{equation}
+其中$Z_N$是吸附$N$个分子时二维气体的正则配分函数
+\begin{equation}
+Z_N=\frac{1}{N!}Z_1^N
+\end{equation}
+$Z_1$为单分子的配分函数。
+\begin{align}
+\nonumber Z_1=&\frac{1}{h^2}\iiiint e^{-\beta(\frac{p^2}{2m}-\varepsilon_0)}dxdydp_xdp_y\\
+\nonumber=&\frac{1}{h^2}e^{\beta\varepsilon_0}\int_0^{2\pi}d\theta\int_0^{+\infty}e^{-\beta\frac{p^2}{2m}}pdp\iint_{\text{吸附面}}dxdy\\
+=&A\left(\frac{2\pi m}{\beta\hbar^2}\right)e^{\beta\varepsilon_0}
+\end{align}
+故巨配分函数可化为
+\begin{equation}
+\Xi=\sum_{N=0}^{\infty}\frac{1}{N!}\left[e^{-\alpha}A\left(\frac{2\pi m}{\beta h^2}\right)e^{\beta\varepsilon_0}\right]
+\end{equation}
+吸附面上的被吸附分子数为
+\begin{equation}
+\bar{N}=-\frac{\partial}{\partial\alpha}\ln\Xi=e^{-\alpha}A\left(\frac{2\pi m}{\beta h^2}\right)e^{\beta\varepsilon_0}=A\left(\frac{2\pi mkT}{h^2}\right)e^{\frac{\varepsilon_0+\mu}{kT}}
+\end{equation}
+单原子分子理想气体的化学势为
+\begin{equation}
+\mu=kT\ln\left[\frac{N}{V}\left(\frac{h^2}{2\pi mkT}\right)^{3/2}\right]
+\end{equation}
+吸附面上的被吸附分子面密度为
+\begin{equation}
+\frac{\overline{N}}{A}=\frac{p}{kT}\left(\frac{h^2}{2\pi mkT}\right)^{1/2}e^{\frac{\varepsilon_0}{kT}}
+\end{equation}
+\end{sol}
+
+\begin{problem}{9.21}
+试证明玻尔兹曼分布的涨落为
+\[
+\overline{(a_l-\bar{a}_l)^2}=\bar{a}_l
+\]
+\end{problem}
+\begin{sol}
+将处在能级$\varepsilon_l$上的粒子视为一个开系，其涨落为
+\begin{equation}
+\overline{(a_l-\bar{a}_l)^2}=-\frac{\partial\bar{a}_l}{\partial\alpha}
+\end{equation}
+将玻尔兹曼分布$\bar{a}_l=\omega_le^{-\alpha-\beta\varepsilon_l}$代入上式得
+\begin{equation}
+\overline{(a_l-\bar{a}_l)^2}=\bar{a}_l
+\end{equation}
+\end{sol}
+
+\begin{problem}{9.22}
+光子气体的$\alpha=0$，式（9.12.11）不能应用。试证明，
+\[
+\overline{(a_l-\bar{a}_l)^2}=-\frac{1}{\beta}\frac{\partial\bar{a}_l}{\partial\varepsilon_l}
+\]
+从而证明光子气体的涨落仍为
+\[
+\overline{(a_l-\bar{a}_l)^2}=\bar{a}_l(1+\bar{a}_l)
+\]
+\end{problem}
+\begin{sol}
+将处在能级$\varepsilon_l$上的光子气体视为一个开系，其巨正则分布为
+\begin{equation}
+\rho_{a_l}=\frac{1}{\Xi}e^{-\beta\varepsilon_la_l}
+\end{equation}
+其中巨配分函数为
+\begin{equation}
+\Xi=\sum_{a_l}e^{-\beta\varepsilon_la_l}
+\end{equation}
+处在能级$\varepsilon_l$上的平均粒子数为
+\begin{equation}
+\bar{a}_l=\frac{1}{\Xi}\sum_{a_l}e^{-\beta\varepsilon_la_l}=\frac{\sum_{a_l}a_le^{-\beta\varepsilon_la_l}}{\sum_{a_l}e^{-\beta\varepsilon_la_l}}
+\end{equation}
+由于
+\begin{align}
+\nonumber-\frac{1}{\beta}\frac{\partial\bar{a}_l}{\partial\varepsilon_l}=&-\frac{1}{\beta}\frac{\partial}{\partial\alpha}\frac{\sum_{a_l}a_le^{-\beta\varepsilon_la_l}}{\sum_{a_l}e^{-\beta\varepsilon_la_l}}\\
+\nonumber=&\frac{\sum_{a_l}a_l^2e^{-\beta\varepsilon_la_l}}{\sum_{a_l}e^{-\beta\varepsilon_la_l}}-\frac{\left(\sum_{a_l}a_le^{-\beta\varepsilon_la_l}\right)^2}{\left(\sum_{a_l}e^{-\beta\varepsilon_la_l}\right)^2}\\
+=&\overline{a_l^2}-(\bar{a}_l)^2
+\end{align}
+故
+\begin{equation}
+\overline{(a_l-\bar{a}_l)^2}=\overline{a_l^2}-(\bar{a}_l)^2=-\frac{1}{\beta}\frac{\partial\bar{a}_l}{\partial\varepsilon_l}
+\end{equation}
+光子为玻色子，处在能级$\varepsilon_l$上的光子气体平均粒子数为
+\begin{equation}
+\bar{a}_l=\frac{1}{e^{\beta\varepsilon_l}-1}
+\end{equation}
+光子气体的涨落为
+\begin{equation}
+\overline{(a_l-\bar{a}_l)^2}=-\frac{1}{\beta}\frac{\partial\bar{a}_l}{\partial\varepsilon_l}=\frac{e^{\beta\varepsilon_l}}{(e^{\beta\varepsilon_l}-1)^2}=\frac{1}{e^{\beta\varepsilon_l}-1}(1+\frac{1}{e^{\beta\varepsilon_l}-1})=\bar{a}_l(1+\bar{a}_l)
+\end{equation}
+\end{sol}
+
+\begin{problem}{10.3}
+试证明开系涨落的基本公式
+\[
+W\propto e^{-\frac{\Delta T\Delta S-\Delta p\Delta V+\Delta\mu\Delta N}{2kT}}
+\]
+并据此证明，在$T$、$V$恒定时
+\begin{gather*}
+\overline{(\Delta N)^2}=kT\left(\frac{\partial N}{\partial\mu}\right)_{T,V},\overline{(\Delta\mu)^2}=kT\left(\frac{\partial\mu}{\partial N}\right)_{T,V}\\
+\overline{\Delta N\Delta\mu}=kT
+\end{gather*}
+\end{problem}
+\begin{sol}
+设一系统与一大热源接触并达到热平衡，因此两者具有相等的温度$T$、压强$p$和化学势$\mu$；系统和大热源构成的复合系统为一孤立系统，因此有确定的能量$E^{(0)}$、体积$V^{(0)}$和粒子数$N^{(0)}$。当系统的能量、体积和粒子数对其最概然值有偏离$\Delta E$、$\Delta V$和$\Delta N$时，复合系统的熵取值$S^{(0)}$，此时复合系统的熵与微观状态之间的关系由玻尔兹曼关系给出
+\begin{equation}
+S^{(0)}=k\ln\Omega
+\end{equation}
+根据等概率原理，出现这种情况的概率为
+\begin{equation}
+\label{prob}
+W\propto\Omega=e^{S^{(0)}/k}\propto e^{\Delta S^{(0)}/k}
+\end{equation}
+其中$\Delta S^{(0)}=S^{(0)}-\overline{S^{(0)}}$是复合系统的熵的偏离。由熵的广延性，复合系统的熵的偏离为系统的熵的偏离与热源的熵的偏离之和
+\begin{equation}
+\label{Sadd}
+\Delta S^{(0)}=\Delta S+\Delta S_r
+\end{equation}
+根据开系的热力学基本方程，
+\begin{equation}
+\label{themobasic}
+\Delta S_r=\frac{\Delta E_r+p\Delta V_r-\mu\Delta N_r}{T}
+\end{equation}
+由于复合系统是孤立系统，有确定的能量$E^{(0)}$、体积$V^{(0)}$和粒子数$N^{(0)}$，
+\begin{gather}
+\Delta E^{(0)}=\Delta E+\Delta E_r=0\\
+\Delta V^{(0)}=\Delta V+\Delta V_r=0\\
+\Delta N^{(0)}=\Delta N+\Delta N_r=0
+\end{gather}
+代入式(\ref{themobasic})得
+\begin{equation}
+\Delta S_r=-\frac{\Delta E+p\Delta V-\mu\Delta N}{T}
+\end{equation}
+将上式和式(\ref{Sadd})代入式(\ref{prob})得
+\begin{equation}
+\label{prob2}
+W\propto e^{-\frac{-T\Delta S+\Delta E+p\Delta V-\mu\Delta N}{kT}}
+\end{equation}
+以$S$，$V$和$N$为自变量，将$E$在其平均值附近展开，准确到二阶项得
+\begin{align}
+\nonumber E=&\overline{E}+\left(\frac{\partial E}{\partial S}\right)_0\Delta S+\left(\frac{\partial E}{\partial V}\right)_0\Delta V+\left(\frac{\partial E}{\partial N}\right)_0\Delta N\\
+\nonumber&+\frac{1}{2}\left[\left(\frac{\partial^2E}{\partial S^2}\right)(\Delta S)^2+\left(\frac{\partial^2E}{\partial V^2}\right)_0(\Delta V)^2+\left(\frac{\partial^2E}{\partial N^2}\right)_0(\Delta N)^2\right.\\
+&\left.+2\left(\frac{\partial^2E}{\partial S\partial V}\right)_0\Delta S\Delta V+2\left(\frac{\partial^2E}{\partial S\partial N}\right)_0\Delta S\Delta N+2\left(\frac{\partial^2E}{\partial V\partial N}\right)_0\Delta V\Delta N\right]
+\end{align}
+因为
+\begin{gather}
+\left(\frac{\partial E}{\partial S}\right)_0=T\\
+\left(\frac{\partial E}{\partial V}\right)_0=-p\\
+\left(\frac{\partial E}{\partial N}\right)_0=\mu
+\end{gather}
+展开式可化为
+\begin{align}
+\nonumber&\Delta E-T\Delta S+p\Delta V-\mu\Delta V\\
+\nonumber=&\frac{1}{2}\Delta S\left[\frac{\partial}{\partial S}\left(\frac{\partial E}{\partial S}\right)_0\Delta S+\frac{\partial}{\partial V}\left(\frac{\partial E}{\partial S}\right)_0\Delta V+\frac{\partial}{\partial N}\left(\frac{\partial E}{\partial S}\right)_0\Delta N\right]\\
+\nonumber&+\frac{1}{2}\Delta V\left[\frac{\partial}{\partial S}\left(\frac{\partial E}{\partial V}\right)_0\Delta S+\frac{\partial}{\partial V}\left(\frac{\partial E}{\partial V}\right)_0\Delta V+\frac{\partial}{\partial N}\left(\frac{\partial E}{\partial V}\right)_0\Delta N\right]\\
+\nonumber&+\frac{1}{2}\Delta N\left[\frac{\partial}{\partial S}\left(\frac{\partial E}{\partial N}\right)_0\Delta S+\frac{\partial}{\partial V}\left(\frac{\partial E}{\partial N}\right)_0\Delta V+\frac{\partial}{\partial N}\left(\frac{\partial E}{\partial N}\right)_0\Delta N\right]\\
+=&\frac{1}{2}(\Delta S\Delta T-\Delta p\Delta V+\Delta N\Delta\mu)
+\end{align}
+代入式(\ref{prob2})得
+\begin{equation}
+\label{prob3}
+W\propto e^{-\frac{\Delta S\Delta T-\Delta p\Delta V+\Delta\mu\Delta N}{2kT}}
+\end{equation}
+以$T$，$V$，$N$为自变量，当$T$，$V$不变时，有
+\begin{equation}
+\Delta\mu=\left(\frac{\partial\mu}{\partial N}\right)_{T,V}\Delta N
+\end{equation}
+此时式(\ref{prob3})可化为
+\begin{equation}
+W\propto e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}
+\end{equation}
+从而有
+\begin{equation}
+\overline{(\Delta N)^2}=\frac{\int(\Delta N)^2e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}{\int e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}=kT\left(\frac{\partial N}{\partial\mu}\right)_{T,V}
+\end{equation}
+\begin{align}
+\nonumber\overline{(\Delta\mu)^2}=&\frac{\int(\Delta\mu\Delta N)e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}{\int e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}\\
+\nonumber=&\frac{\int\left(\frac{\partial\mu}{\partial N}\right)_{T,V}^2(\Delta N)^2e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}{\int e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}\\
+=&kT\left(\frac{\partial\mu}{\partial N}\right)_{T,V}
+\end{align}
+\begin{align}
+\nonumber\overline{\Delta\mu\Delta N}=&\frac{\int(\Delta\mu\Delta N)e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}{\int e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}\\
+\nonumber=&\frac{\int\left(\frac{\partial\mu}{\partial N}\right)_{T,V}(\Delta N)^2e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}{\int e^{-\left(\frac{\partial\mu}{\partial N}\right)_{T,N}(\Delta N)^2/2kT}d(\Delta N)}\\
+=&kT
+\end{align}
+\end{sol}
+
+\begin{problem}{10.7}
+电流计带有用细丝悬挂的反射镜。由于反射镜受到气体分子碰撞而施加的力矩不平衡，反射镜不停地进行着无规则的扭摆运动。根据能量均分定理，反射镜转动角度$\varphi$的方均值$\overline{\varphi^2}$满足
+\[
+\frac{1}{2}A\overline{\varphi^2}=\frac{1}{2}kT
+\]
+对于很细的石英丝，弹性系数$A=10^{-13}N\cdot m\cdot rad^{-2}$，计算在$300K$下的$\sqrt{\overline{\varphi^2}}$。
+\end{problem}
+\begin{sol}
+\begin{equation}
+\sqrt{\overline{\varphi^2}}=\sqrt{\frac{kT}{A}}=\sqrt{\frac{1.38\times10^{-23}\times300}{10^{-13}}}=2\times10^{-4}\text{rad}
+\end{equation}
+\end{sol}
+
+\begin{problem}{10.8}
+三维布朗颗粒在各向同性介质中运动，郎之万方程为
+\[
+\frac{dp_i}{dt}=-\gamma p_i+F_i(t),\quad i=1,2,3
+\]
+其涨落力满足
+\[
+\overline{F_i(t)}=0,\overline{F_i(t)F_j(t')}=2m\gamma kT\delta_{ij}\delta(t-t')
+\]
+试证明，经过时间$t$布朗颗粒位移平方的平均值为
+\[
+\overline{[\bm{x}-\bm{x}(0)]^2}=\sum_i\overline{[x_i-x_i(0)]^2}=\frac{6kT}{m\gamma}t
+\]
+\end{problem}
+\begin{sol}
+一维情况下，
+\begin{equation}
+\overline{[x_i-x_i(0)]^2}=\frac{2kT}{m\gamma}t,\quad i=1,2,3
+\end{equation}
+三维情况下，
+\begin{equation}
+\overline{[\bm{x}-\bm{x}(0)]^2}=\overline{\left\{\sum_{i=1}^3[x_i-x_i(0)]\vec{e}_i\right\}^2}=\sum_{i=1}^3\overline{[x_i-x_i(0)]^2}=\frac{6kT}{m\gamma}t
+\end{equation}
+\end{sol}
+\end{document}
